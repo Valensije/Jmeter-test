@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">500</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request (Get payment values)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;planId&quot;: &quot;7814fcb5-594e-430f-8a09-2b1bd25aa9db&quot;,&#xd;
+    &quot;isPlanDurationAnnual&quot;: false,&#xd;
+    &quot;numberOfEmployees&quot;: 3&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">18.132.188.41</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">subscriptions/cloudenly/payment-values</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request ((Validate user details)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;email&quot;: &quot;loverma@gmail.com&quot;,&#xd;
+    &quot;domainName&quot; : &quot;293062065985&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">18.132.188.41</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">users/validate/user-details</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Connection</stringProp>
+              <stringProp name="Header.value">keep-alive</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <intProp name="calcMode">2</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>600.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">9</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Connection</stringProp>
+              <stringProp name="Header.value">keep-alive</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">CLOUDENLY_PRIVATE_b8f210f1-d926-41ee-9e79-7ba4c</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">C:/Users/VALENS IJEOMAH/Documents/cloudenlyemails.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">alias,email,paymentReferrenceId</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request (create order provisioning response)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;user&quot;: {&#xd;
+        &quot;name&quot;: &quot;Nisarg Shukla&quot;,&#xd;
+        &quot;alias&quot;: &quot;${alias}&quot;,&#xd;
+        &quot;fname&quot;: &quot;Nisarg&quot;,&#xd;
+        &quot;lname&quot;: &quot;Shukla&quot;,&#xd;
+        &quot;phoneNo&quot;: &quot;01234567890&quot;,&#xd;
+        &quot;email&quot;: &quot;${email}&quot;&#xd;
+    },&#xd;
+    &quot;subscription&quot;: {&#xd;
+        &quot;plan&quot;: &quot;basic&quot;,&#xd;
+        &quot;totalCost&quot;: 2394,&#xd;
+        &quot;userVolumeDiscount&quot;: 0,&#xd;
+        &quot;initialPurchaseDiscount&quot;: 266,&#xd;
+        &quot;specialDiscount&quot;: 0,&#xd;
+        &quot;vat&quot;: 179.55,&#xd;
+        &quot;totalDiscount&quot;: 266,&#xd;
+        &quot;invoicePerMonth&quot;: 2573.55,&#xd;
+        &quot;paymentDue&quot;: 2573.55,&#xd;
+        &quot;effectiveCostPerUser&quot;: 1330,&#xd;
+        &quot;numberOfUsers&quot;: 2,&#xd;
+        &quot;numberOfModules&quot;: 8,&#xd;
+        &quot;isPlanDurationAnnual&quot;: false,&#xd;
+        &quot;paymentReferrenceId&quot;: &quot;${paymentReferrenceId}&quot;,&#xd;
+        &quot;modules&quot;: [&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;fa356a48-a2da-46a0-86e8-4c9a2afac235&quot;,&#xd;
+                    &quot;name&quot;: &quot;Location&quot;,&#xd;
+                    &quot;slug&quot;: &quot;location&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: &quot;&quot;,&#xd;
+                    &quot;isFlexiDefault&quot;: true,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;,&#xd;
+                        &quot;roles&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 1,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Dashboard&quot;,&#xd;
+                        &quot;Office Locations&quot;,&#xd;
+                        &quot;PAYE Details &amp; IDs O SIRS Matching &amp; more&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;cf2a9abe-4ded-496d-bbe4-fbddb9f1a68b&quot;,&#xd;
+                    &quot;name&quot;: &quot;Employee Management Essential&quot;,&#xd;
+                    &quot;slug&quot;: &quot;employeeManagementEssential&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: null,&#xd;
+                    &quot;isFlexiDefault&quot;: false,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 2,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Onboarding&quot;,&#xd;
+                        &quot;Employee directories, biodata, employment profiles, etc.&quot;,&#xd;
+                        &quot;Dashboards &amp; Registers&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;b553333b-12d9-4a18-b6f3-69e762fa2c86&quot;,&#xd;
+                    &quot;name&quot;: &quot;Payroll Essential&quot;,&#xd;
+                    &quot;slug&quot;: &quot;payrollEssential&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: null,&#xd;
+                    &quot;isFlexiDefault&quot;: false,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 3,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Planning (workdays, work hours, earnings, deduction items, etc.)&quot;,&#xd;
+                        &quot;Payrun Scheduling (monthly Only)&quot;,&#xd;
+                        &quot;Salary Processing (regular earnings ONLY)&quot;,&#xd;
+                        &quot;Pension&quot;,&#xd;
+                        &quot;PAYE&quot;,&#xd;
+                        &quot;NHF&quot;,&#xd;
+                        &quot;Remittances&quot;,&#xd;
+                        &quot;Dashboard &amp; Registers&quot;,&#xd;
+                        &quot;Not customizable by job level&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;7eb51639-f6eb-4a31-99d5-1d86abe1f7a9&quot;,&#xd;
+                    &quot;name&quot;: &quot;Payroll Compliance&quot;,&#xd;
+                    &quot;slug&quot;: &quot;payrollCompliance&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: null,&#xd;
+                    &quot;isFlexiDefault&quot;: true,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;,&#xd;
+                        &quot;role&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 4,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Pension&quot;,&#xd;
+                        &quot;PAYE&quot;,&#xd;
+                        &quot;NHF Deductions&quot;,&#xd;
+                        &quot;Eligible Employees&quot;,&#xd;
+                        &quot;Salary Calculations&quot;,&#xd;
+                        &quot;Dashboards &amp; Registers&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;20c2a0c5-980d-452d-a784-89c7df649361&quot;,&#xd;
+                    &quot;name&quot;: &quot;Identity &amp; Access Mgt (Limited)&quot;,&#xd;
+                    &quot;slug&quot;: &quot;identity&amp;AccessMgt(Limited)&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: null,&#xd;
+                    &quot;isFlexiDefault&quot;: false,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 5,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Users&quot;,&#xd;
+                        &quot;Roles&quot;,&#xd;
+                        &quot;Privileges&quot;,&#xd;
+                        &quot;Permissions&quot;,&#xd;
+                        &quot;Restrictions (by job level, designation, location, employees)&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;3e058238-bf30-11ed-afa1-0242ac120002&quot;,&#xd;
+                    &quot;name&quot;: &quot;Approval Management&quot;,&#xd;
+                    &quot;slug&quot;: &quot;approvalManagement&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: null,&#xd;
+                    &quot;isFlexiDefault&quot;: true,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;roles&quot;,&#xd;
+                        &quot;pricing&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 6,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Settings &amp; Workflows&quot;,&#xd;
+                        &quot;Requests&quot;,&#xd;
+                        &quot;Approvals&quot;,&#xd;
+                        &quot;Dashboard&quot;,&#xd;
+                        &quot;Customize by functions, locations&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;0978bcc0-79b6-441f-8c66-da1004099354&quot;,&#xd;
+                    &quot;name&quot;: &quot;Employee Self Service (ESS)&quot;,&#xd;
+                    &quot;slug&quot;: &quot;ess&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: &quot;&quot;,&#xd;
+                    &quot;isFlexiDefault&quot;: true,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 7,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Settings &amp; Permissions&quot;,&#xd;
+                        &quot;Dashboard&quot;,&#xd;
+                        &quot;Self Onboarding&quot;,&#xd;
+                        &quot;Profile &amp; Personal Information Management&quot;,&#xd;
+                        &quot;Request and Approve Leave, Overtime, Advance &amp; Loans&quot;&#xd;
+                    ]&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;id&quot;: &quot;a43152a3-d35a-41cd-8fd5-02aa498de171&quot;,&#xd;
+                    &quot;name&quot;: &quot;Mobile App&quot;,&#xd;
+                    &quot;slug&quot;: &quot;mobileApp&quot;,&#xd;
+                    &quot;appSlug&quot;: &quot;humanar&quot;,&#xd;
+                    &quot;monthlyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;annuallyPrice&quot;: &quot;0&quot;,&#xd;
+                    &quot;description&quot;: null,&#xd;
+                    &quot;isFlexiDefault&quot;: true,&#xd;
+                    &quot;isAddOn&quot;: false,&#xd;
+                    &quot;isActive&quot;: true,&#xd;
+                    &quot;usage&quot;: [&#xd;
+                        &quot;pricing&quot;&#xd;
+                    ],&#xd;
+                    &quot;displayOrder&quot;: 8,&#xd;
+                    &quot;color&quot;: null,&#xd;
+                    &quot;dependencies&quot;: [],&#xd;
+                    &quot;features&quot;: [&#xd;
+                        &quot;Access Cloudenly apps on mobile phone&quot;&#xd;
+                    ]&#xd;
+                }&#xd;
+            ]&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">18.132.188.41</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">subscriptions/webhook/confirm-subscription</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">30000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>throughput</name>
+              <value>0.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
